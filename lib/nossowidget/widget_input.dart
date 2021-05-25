@@ -10,6 +10,8 @@ class InputTextos extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      maxLines: 6,
+      maxLength: 200,
       style: TextStyle(
         color: Colors.black,
         backgroundColor: Colors.white

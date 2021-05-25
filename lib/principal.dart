@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'nossowidget/widget_button.dart';
 import 'nossowidget/widget_input.dart';
 import 'nossowidget/widget_text.dart';
 class TelaPrincipal extends StatefulWidget {
@@ -23,26 +24,48 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
   _body() {
     return Container(
-      height: double.infinity,
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Container(
-              child: Wrap(
-                children: [
-                  Textos("Informar um texto:")
-                ],
-              ),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Textos("Informe um texto:")
+            ],
           ),
-          Expanded(
-            child: Container(
-              child: InputTextos("", "Digite aqui", controller: traducao),
-            ),
+          Wrap(
+            children: [
+              InputTextos("", "", controller: traducao,),
+              SizedBox(
+                width: 10,
+                height: 10,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              Botoes("Enviar Imagem", onPressed: _imagens,),
+              Botoes("Enviar arquivo de áudio", onPressed: _audio,)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Botoes("Traduzir", onPressed: _traduzir,),
+            ],
           )
         ],
       ),
     );
+  }
+
+  _imagens() {
+  }
+
+  _audio() {
+  }
+
+  _traduzir() {
   }
 }

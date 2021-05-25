@@ -6,12 +6,12 @@ class Botoes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-        color: Colors.blue,
+        color: Colors.white,
         child: Text(
           texto,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
+            color: Colors.red,
+            fontSize: 14.8,
           ),
         ),
         onPressed: onPressed);
