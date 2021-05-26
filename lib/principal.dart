@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tradutor/nossowidget/widget_imagens.dart';
 
 import 'nossowidget/widget_button.dart';
 import 'nossowidget/widget_input.dart';
@@ -10,6 +11,7 @@ class TelaPrincipal extends StatefulWidget {
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
   final traducao = TextEditingController();
+  String tradu = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +56,12 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             children: [
               Botoes("Traduzir", onPressed: _traduzir,),
             ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SuaImagem(caminhoArquivo: tradu,)
+            ],
           )
         ],
       ),
@@ -67,5 +75,6 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   }
 
   _traduzir() {
+    tradu="imagens/"+traducao.text+".jpg";
   }
 }
