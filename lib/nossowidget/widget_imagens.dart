@@ -15,7 +15,8 @@ class _SuaImagemState extends State<SuaImagem> {
       filterQuality: FilterQuality.high,
       fit: BoxFit.cover,
       scale: 50,
-
+      width: 50,
+      height: 130,
     );
   }
 }

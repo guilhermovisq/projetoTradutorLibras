@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tradutor/nossowidget/widget_imagens.dart';
+import 'package:projeto_tradutor/traducao.dart';
 
 import 'nossowidget/widget_button.dart';
 import 'nossowidget/widget_input.dart';
@@ -11,7 +12,7 @@ class TelaPrincipal extends StatefulWidget {
 
 class _TelaPrincipalState extends State<TelaPrincipal> {
   final traducao = TextEditingController();
-  String tradu = "";
+  String tradu = "abcd";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,15 +55,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Botoes("Traduzir", onPressed: _traduzir,),
+              Botoes("Traduzir", onPressed: () {
+                _traduzir(context, Traducao(tradu));
+              },),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SuaImagem(caminhoArquivo: tradu,)
-            ],
-          )
         ],
       ),
     );
@@ -74,7 +71,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   _audio() {
   }
 
-  _traduzir() {
-    tradu="imagens/"+traducao.text+".jpg";
+  _traduzir(ctx, Traducao page) {
+    Navigator.push(ctx, MaterialPageRoute(builder: (BuildContext context){
+      return page;
+    }
+    ));
   }
 }
